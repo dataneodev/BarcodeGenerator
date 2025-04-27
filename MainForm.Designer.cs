@@ -31,12 +31,12 @@ partial class MainForm
     {
         openCsvFile = new System.Windows.Forms.Button();
         lbCsvSeparator = new System.Windows.Forms.Label();
-        textBox1 = new System.Windows.Forms.TextBox();
-        listBox1 = new System.Windows.Forms.ListBox();
-        textBox2 = new System.Windows.Forms.TextBox();
+        tbCSVFilePath = new System.Windows.Forms.TextBox();
+        lbBarcodes = new System.Windows.Forms.ListBox();
+        tbCsvSeparator = new System.Windows.Forms.TextBox();
         comboBox1 = new System.Windows.Forms.ComboBox();
         lbExport = new System.Windows.Forms.Label();
-        textBox3 = new System.Windows.Forms.TextBox();
+        tbExportDirectory = new System.Windows.Forms.TextBox();
         btnExportFolder = new System.Windows.Forms.Button();
         label1 = new System.Windows.Forms.Label();
         btnExport = new System.Windows.Forms.Button();
@@ -62,32 +62,32 @@ partial class MainForm
         lbCsvSeparator.Text = "Separator csv:";
         lbCsvSeparator.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
         // 
-        // textBox1
+        // tbCSVFilePath
         // 
-        textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right));
-        textBox1.Location = new System.Drawing.Point(134, 5);
-        textBox1.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
-        textBox1.Name = "textBox1";
-        textBox1.ReadOnly = true;
-        textBox1.Size = new System.Drawing.Size(394, 23);
-        textBox1.TabIndex = 2;
+        tbCSVFilePath.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right));
+        tbCSVFilePath.Location = new System.Drawing.Point(134, 5);
+        tbCSVFilePath.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
+        tbCSVFilePath.Name = "tbCSVFilePath";
+        tbCSVFilePath.ReadOnly = true;
+        tbCSVFilePath.Size = new System.Drawing.Size(394, 23);
+        tbCSVFilePath.TabIndex = 2;
         // 
-        // listBox1
+        // lbBarcodes
         // 
-        listBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right));
-        listBox1.FormattingEnabled = true;
-        listBox1.Location = new System.Drawing.Point(243, 68);
-        listBox1.Name = "listBox1";
-        listBox1.Size = new System.Drawing.Size(285, 289);
-        listBox1.TabIndex = 3;
+        lbBarcodes.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right));
+        lbBarcodes.FormattingEnabled = true;
+        lbBarcodes.Location = new System.Drawing.Point(243, 68);
+        lbBarcodes.Name = "lbBarcodes";
+        lbBarcodes.Size = new System.Drawing.Size(285, 289);
+        lbBarcodes.TabIndex = 3;
         // 
-        // textBox2
+        // tbCsvSeparator
         // 
-        textBox2.Location = new System.Drawing.Point(134, 93);
-        textBox2.Name = "textBox2";
-        textBox2.Size = new System.Drawing.Size(62, 23);
-        textBox2.TabIndex = 4;
-        textBox2.TextChanged += textBox2_TextChanged;
+        tbCsvSeparator.Location = new System.Drawing.Point(134, 93);
+        tbCsvSeparator.Name = "tbCsvSeparator";
+        tbCsvSeparator.Size = new System.Drawing.Size(62, 23);
+        tbCsvSeparator.TabIndex = 4;
+        tbCsvSeparator.Text = ",";
         // 
         // comboBox1
         // 
@@ -105,17 +105,16 @@ partial class MainForm
         lbExport.TabIndex = 6;
         lbExport.Text = "Format exportu:";
         lbExport.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-        lbExport.Click += label1_Click_1;
         // 
-        // textBox3
+        // tbExportDirectory
         // 
-        textBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right));
-        textBox3.Location = new System.Drawing.Point(134, 35);
-        textBox3.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
-        textBox3.Name = "textBox3";
-        textBox3.ReadOnly = true;
-        textBox3.Size = new System.Drawing.Size(394, 23);
-        textBox3.TabIndex = 8;
+        tbExportDirectory.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right));
+        tbExportDirectory.Location = new System.Drawing.Point(134, 35);
+        tbExportDirectory.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
+        tbExportDirectory.Name = "tbExportDirectory";
+        tbExportDirectory.ReadOnly = true;
+        tbExportDirectory.Size = new System.Drawing.Size(394, 23);
+        tbExportDirectory.TabIndex = 8;
         // 
         // btnExportFolder
         // 
@@ -134,7 +133,6 @@ partial class MainForm
         label1.TabIndex = 9;
         label1.Text = "Folder exportu:";
         label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-        label1.Click += label1_Click_2;
         // 
         // btnExport
         // 
@@ -149,7 +147,6 @@ partial class MainForm
         // 
         // openFileDialog1
         // 
-        openFileDialog1.FileName = "";
         openFileDialog1.Filter = "CSV files (*.csv)|*.csv|All files (*.*)|*.*";
         openFileDialog1.Title = "Wybierz plik CSV";
         // 
@@ -160,13 +157,13 @@ partial class MainForm
         ClientSize = new System.Drawing.Size(535, 363);
         Controls.Add(btnExport);
         Controls.Add(label1);
-        Controls.Add(textBox3);
+        Controls.Add(tbExportDirectory);
         Controls.Add(btnExportFolder);
         Controls.Add(lbExport);
         Controls.Add(comboBox1);
-        Controls.Add(textBox2);
-        Controls.Add(listBox1);
-        Controls.Add(textBox1);
+        Controls.Add(tbCsvSeparator);
+        Controls.Add(lbBarcodes);
+        Controls.Add(tbCSVFilePath);
         Controls.Add(lbCsvSeparator);
         Controls.Add(openCsvFile);
         StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -189,12 +186,12 @@ partial class MainForm
 
     private System.Windows.Forms.ComboBox comboBox1;
 
-    private System.Windows.Forms.TextBox textBox3;
+    private System.Windows.Forms.TextBox tbExportDirectory;
 
     private System.Windows.Forms.Label lbCsvSeparator;
-    private System.Windows.Forms.TextBox textBox1;
-    private System.Windows.Forms.ListBox listBox1;
-    private System.Windows.Forms.TextBox textBox2;
+    private System.Windows.Forms.TextBox tbCSVFilePath;
+    private System.Windows.Forms.ListBox lbBarcodes;
+    private System.Windows.Forms.TextBox tbCsvSeparator;
 
     private System.Windows.Forms.Button openCsvFile;
 

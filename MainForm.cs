@@ -12,13 +12,23 @@ public partial class MainForm : Form
     {
         if (openFileDialog1.ShowDialog() == DialogResult.OK)
         {
-            string filePath = openFileDialog1.FileName;
-            string[] lines = File.ReadAllLines(filePath);
+            var csvParser = new CSVParser();
 
-            // Przykład: wyświetlenie zawartości w MessageBox
-            MessageBox.Show(string.Join(Environment.NewLine, lines), "Zawartość pliku CSV");
-
-            // Możesz teraz użyć tablicy 'lines' w dalszej części programu
+            try
+            {
+                var result = csvParser.Get(openFileDialog1.FileName,
+                    string.IsNullOrWhiteSpace(tbCsvSeparator.Text) ? null : tbCsvSeparator.Text[0]);
+                tbCSVFilePath.Text = result.FilePath;
+                tbExportDirectory.Text = result.ExportDirPath;
+                lbBarcodes.Items.Clear();
+                lbBarcodes.Items.Add(result.Barcodes);
+            }
+            catch (Exception ex)
+            {
+                lbBarcodes.Items.Clear();
+                tbCSVFilePath.Text = "";
+                tbExportDirectory.Text = "";
+            }
         }
     }
 }
