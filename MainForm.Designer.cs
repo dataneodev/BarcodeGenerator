@@ -40,6 +40,7 @@ partial class MainForm
         btnExportFolder = new System.Windows.Forms.Button();
         label1 = new System.Windows.Forms.Label();
         btnExport = new System.Windows.Forms.Button();
+        openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
         SuspendLayout();
         // 
         // openCsvFile
@@ -50,6 +51,7 @@ partial class MainForm
         openCsvFile.TabIndex = 0;
         openCsvFile.Text = "Otwórz plik csv";
         openCsvFile.UseVisualStyleBackColor = true;
+        openCsvFile.Click += openCsvFile_Click;
         // 
         // lbCsvSeparator
         // 
@@ -145,7 +147,13 @@ partial class MainForm
         btnExport.Text = "Exportuj";
         btnExport.UseVisualStyleBackColor = true;
         // 
-        // Form1
+        // openFileDialog1
+        // 
+        openFileDialog1.FileName = "";
+        openFileDialog1.Filter = "CSV files (*.csv)|*.csv|All files (*.*)|*.*";
+        openFileDialog1.Title = "Wybierz plik CSV";
+        // 
+        // MainForm
         // 
         AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
         AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -167,6 +175,8 @@ partial class MainForm
         ResumeLayout(false);
         PerformLayout();
     }
+
+    private System.Windows.Forms.OpenFileDialog openFileDialog1;
 
     private System.Windows.Forms.Button btnExportFolder;
 

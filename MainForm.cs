@@ -7,23 +7,18 @@ public partial class MainForm : Form
         InitializeComponent();
     }
 
-    private void label1_Click(object sender, EventArgs e)
-    {
-        throw new System.NotImplementedException();
-    }
 
-    private void label1_Click_1(object sender, EventArgs e)
+    private void openCsvFile_Click(object sender, EventArgs e)
     {
-        throw new System.NotImplementedException();
-    }
+        if (openFileDialog1.ShowDialog() == DialogResult.OK)
+        {
+            string filePath = openFileDialog1.FileName;
+            string[] lines = File.ReadAllLines(filePath);
 
-    private void textBox2_TextChanged(object sender, EventArgs e)
-    {
-        throw new System.NotImplementedException();
-    }
+            // Przykład: wyświetlenie zawartości w MessageBox
+            MessageBox.Show(string.Join(Environment.NewLine, lines), "Zawartość pliku CSV");
 
-    private void label1_Click_2(object sender, EventArgs e)
-    {
-        throw new System.NotImplementedException();
+            // Możesz teraz użyć tablicy 'lines' w dalszej części programu
+        }
     }
 }
