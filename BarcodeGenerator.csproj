@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>WinExe</OutputType>
+        <TargetFramework>net9.0-windows</TargetFramework>
+        <Nullable>enable</Nullable>
+        <UseWindowsForms>true</UseWindowsForms>
+        <ImplicitUsings>enable</ImplicitUsings>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Barcoder" Version="3.0.0" />
+      <PackageReference Include="Barcoder.Renderer.Image" Version="3.0.0" />
+      <PackageReference Include="Barcoder.Renderer.Svg" Version="3.0.0" />
+    </ItemGroup>
+
+</Project>
